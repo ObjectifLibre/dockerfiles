@@ -7,6 +7,7 @@ RUN  apt-get update \
         gcc \
         python3-dev \
     && pip install cloudkitty \
+    && mkdir /etc/cloudkitty \
     && apt-get purge -y \
         gcc \
         python3-dev \
@@ -14,10 +15,13 @@ RUN  apt-get update \
     && rm -rf /var/cache/apt \
     && rm -rf /var/lib/apt/lists/*
 
+COPY api_paste.ini /etc/cloudkitty/api_paste.ini
+
 RUN  useradd cloudkitty --create-home --home-dir /home/cloudkitty \
     && mkdir -p /var/www/cloudkitty \
     && cp /usr/local/lib/python3.7/site-packages/cloudkitty/api/app.wsgi /var/www/cloudkitty \
     && chown -R cloudkitty:cloudkitty /var/www/cloudkitty \
+    && chown -R cloudkitty:cloudkitty /etc/cloudkitty \
     && ln -sf /dev/stdout /var/log/apache2/cloudkitty_error.log \
     && ln -sf /dev/stdout /var/log/apache2/cloudkitty_access.log \
     && ln -sf /dev/stdout /var/log/apache2/error.log \
