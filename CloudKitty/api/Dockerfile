@@ -6,7 +6,7 @@ RUN apt-get update \
         libapache2-mod-wsgi-py3 \
         gcc \
         python3-dev \
-    && pip install cloudkitty PyMySQL \
+    && pip install cloudkitty PyMySQL redis \
     && mkdir \
         /etc/cloudkitty \
         /etc/cloudkitty-config \

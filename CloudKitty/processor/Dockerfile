@@ -4,7 +4,7 @@ RUN apt-get update \
     && apt-get install --no-install-recommends -y \
         gcc \
         python3-dev \
-    && pip install cloudkitty PyMySQL \
+    && pip install cloudkitty PyMySQL redis \
     && mkdir \
         /etc/cloudkitty \
         /etc/cloudkitty-config \
@@ -13,7 +13,6 @@ RUN apt-get update \
         python3-dev \
     && apt-get clean -y \
     && rm -rf /var/cache/apt \
-    && rm -rf /var/lib/apt/lists/* \
-    && mkdir /etc/cloudkitty
+    && rm -rf /var/lib/apt/lists/*
 
 CMD [ "cloudkitty-processor" ]

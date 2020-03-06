@@ -9,7 +9,7 @@ If you wish to configure CloudKitty, the configuration files are located here :
 - `/etc/cloudkitty/metrics.yml`
 - `/etc/cloudkitty/cloudkitty.conf`
 
-Please, refer to the [documentation of cloudkitty](https://docs.openstack.org/cloudkitty/latest/admin/configuration/configuration.html) if you don't know how to use theses files.
+Please, refer to the [documentation of cloudkitty](https://docs.openstack.org/cloudkitty/latest/admin/configuration/configuration.html) if you don't know how to use these files.
 
 ### api
 
