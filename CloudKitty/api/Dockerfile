@@ -1,13 +1,15 @@
 FROM python:3.7-slim-buster
 
-RUN  apt-get update \
+RUN apt-get update \
     && apt-get install --no-install-recommends -y \
         apache2 \
         libapache2-mod-wsgi-py3 \
         gcc \
         python3-dev \
-    && pip install cloudkitty \
-    && mkdir /etc/cloudkitty \
+    && pip install cloudkitty PyMySQL redis \
+    && mkdir \
+        /etc/cloudkitty \
+        /etc/cloudkitty-config \
     && apt-get purge -y \
         gcc \
         python3-dev \
